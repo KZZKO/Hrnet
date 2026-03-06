@@ -1,0 +1,96 @@
+// |===========================================================================|
+// |--------------------------| Paramètres du site |---------------------------|
+// |===========================================================================|
+
+// --------- Couleur du site ---------
+
+$color-primary: #ff0000;
+$color-secondary: #006be6;
+// $color-tr: #ffffff;
+
+// --------- Nuance du site ----------
+
+
+// --------- Nuance shadows ----------
+
+
+// --------- Nuance border -----------
+
+
+// --------- Nuance police -----------
+
+
+// --------- Police du site ----------
+
+@font-face {
+    font-family: 'Unbuntu-Bold';
+    src: url(../assets/fonts/Ubuntu/Ubuntu-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Unbuntu-regular';
+    src: url(../assets/fonts/Ubuntu/Ubuntu-Regular.ttf);
+}
+
+// ------- Mixins et variables -------
+
+$font-title: 'Unbuntu-Bold';
+
+$font-text: 'Unbuntu-regular';
+
+// ---------- Responsive ------------
+
+// Tablet Version
+$mg: 1024px;
+
+// Large Tablet Version
+$lg: 1210px;
+
+// Small desktop Version
+$xl: 1340px;
+
+// ------- Ajustement du site --------
+
+* {
+    scroll-behavior: smooth;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+// ------- Style scrollbar --------
+
+// ::-webkit-scrollbar {
+//     width: 0.4em;
+// }
+
+// ::-webkit-scrollbar-track {
+//     background: hsl(0, 0%, 13%);
+// }
+
+// ::-webkit-scrollbar-thumb {
+//     background: hsl(0, 0%, 20%);
+
+//     &:hover {
+//         background: hsl(0 0% 60% / 0.5);
+//     }
+// }
