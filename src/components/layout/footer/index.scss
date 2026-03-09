@@ -1,0 +1,25 @@
+// |===========================================================================|
+// |-----------------------------| Footer Style |------------------------------|
+// |===========================================================================|
+
+@use "../../../styles/settings" as *;
+
+// =============================================================================
+
+.footer-section {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+
+    p {
+        font-family: $font-text;
+        color: $text-color1;
+
+        span {
+            font-family: $font-title;
+        }
+    }
+}

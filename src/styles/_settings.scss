@@ -4,12 +4,14 @@
 
 // --------- Couleur du site ---------
 
-$color-primary: #ff0000;
-$color-secondary: #006be6;
-// $color-tr: #ffffff;
+$color-primary: #40835b;
+$color-secondary: #e9edea;
+$color-tr: #ffffff;
 
 // --------- Nuance du site ----------
 
+$faded-background: #264e36;
+$fadedDark-background: #20412d;
 
 // --------- Nuance shadows ----------
 
@@ -19,6 +21,7 @@ $color-secondary: #006be6;
 
 // --------- Nuance police -----------
 
+$text-color1: #e9edea;
 
 // --------- Police du site ----------
 
@@ -63,6 +66,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, $fadedDark-background 1%, $faded-background, $color-primary);
 }
 
 p,
