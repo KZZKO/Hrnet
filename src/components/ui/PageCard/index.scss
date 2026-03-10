@@ -5,3 +5,11 @@
 @use "../../../styles/settings" as *;
 
 // =============================================================================
+
+
+.page-section {
+
+    background-color: $color-secondary;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+}

@@ -1,4 +1,2 @@
-- Init le projet
 - Faire la première page
-- Récupérer les data
 - Comparatif performance Lighthouse

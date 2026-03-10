@@ -6,6 +6,8 @@
 
 $color-primary: #40835b;
 $color-secondary: #e9edea;
+$color-secondary-darker: #00000008;
+$color-secondary-lighter: #f4f4f4;
 $color-tr: #ffffff;
 
 // --------- Nuance du site ----------
@@ -18,10 +20,15 @@ $fadedDark-background: #20412d;
 
 // --------- Nuance border -----------
 
+$border-gray: #d1d1d1;
 
 // --------- Nuance police -----------
 
-$text-color1: #e9edea;
+$text-color-white: #e9edea;
+$text-color-black1: #363434;
+$text-color-black2: #585656;
+$text-color-placeholder: #bdbdbd;
+$text-error: #ac3d3d;
 
 // --------- Police du site ----------
 

@@ -1,10 +1,9 @@
 import "./index.scss"
 
-export const PageCard = () => {
-
+export const PageCard = ({ children }) => {
     return (
-        <div>
-
+        <div className="page-section">
+            {children}
         </div>
     )
 }

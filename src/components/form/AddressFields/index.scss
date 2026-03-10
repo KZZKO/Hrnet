@@ -1,5 +1,5 @@
 // |===========================================================================|
-// |----------------------------| PersField Style |----------------------------|
+// |-------------------------------| Adress Style |----------------------------|
 // |===========================================================================|
 
 @use "../../../styles/settings" as *;
@@ -7,22 +7,45 @@
 // =============================================================================
 
 
-.form-section {
+.form-fieldset {
 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    width: 680px;
-    gap: 20px 30px;
+    width: 600px;
+    gap: 10px 30px;
+    margin-top: 20px;
+    background-color: $color-secondary-darker;
+    border: none;
+    border-radius: 10px;
+
+    legend {
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-secondary;
+        padding: 5px;
+        border-radius: 30px;
+        font-family: $font-text;
+        font-size: 1.2em;
+        color: $text-color-black1;
+
+        i {
+            font-size: 0.8em;
+        }
+    }
 
     .form-group {
 
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: flex-start;
+        justify-content: center;
+
 
         label {
             position: relative;
@@ -38,21 +61,10 @@
                 right: -12px;
                 color: $text-error;
             }
-
-            &::before {
-
-                content: "";
-                position: absolute;
-                bottom: -3px;
-                left: 0;
-                width: 20px;
-                height: 3px;
-                background-color: $color-primary;
-                border-radius: 5px;
-            }
         }
 
-        input {
+        input,
+        select {
             width: 270px;
             height: 40px;
             border: 1px solid $border-gray;
@@ -76,9 +88,8 @@
             }
         }
 
-        input[type="date"] {
-            color: $text-color-placeholder;
-            font-family: $font-text;
+        #street {
+            width: 570px;
         }
 
         .error-message {
