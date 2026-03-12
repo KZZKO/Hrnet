@@ -1,2 +1,9 @@
-- Faire la première page
+- Finir de stylisé les boutons
+- Import plugin tableau
+- Ajuster le tableau
+- Créer plugin modal
+- Doc du plugin
+- Import plugin modal
+- Ajuster la modal
+- SEO
 - Comparatif performance Lighthouse

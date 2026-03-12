@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PersonalFields } from '../PersonalFields/Persfield';
 import { AddressFields } from '../AddressFields/adressfield';
 import { DepartmentSelect } from '../DepartmentSelect/deptfield';
+import { Button } from '../../ui/Button/button';
 import './index.scss';
 
 const initialFormData = {
@@ -17,6 +19,8 @@ const initialFormData = {
 };
 
 export const EmployeeForm = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState(initialFormData);
     const [errors, setErrors] = useState({});
 
@@ -115,15 +119,28 @@ export const EmployeeForm = () => {
 
     return (
         <form className="employee-form" onSubmit={handleSubmit} noValidate>
-            <h2 className="employee-form-title">Create Employee</h2>
+            <div className="employee-form-header">
+                <h2 className="employee-form-title">Create Employee</h2>
+
+                <Button
+                    type="button"
+                    variant="primary"
+                    icon="fa-solid fa-users"
+                    onClick={() => navigate('/Employee')}
+                ></Button>
+            </div>
 
             <PersonalFields formData={formData} onChange={handleChange} errors={errors} />
             <AddressFields formData={formData} onChange={handleChange} errors={errors} />
             <DepartmentSelect formData={formData} onChange={handleChange} errors={errors} />
 
-            <button type="submit" className="employee-form-submit">
-                Save Employee <i className="fa-solid fa-arrow-right"></i>
-            </button>
+            <Button
+                type="submit"
+                variant="secondary"
+                icon="fa-solid fa-arrow-right"
+            >
+                Save Employee
+            </Button>
         </form>
     );
 };

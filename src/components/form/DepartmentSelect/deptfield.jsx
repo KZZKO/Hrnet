@@ -2,8 +2,8 @@ import './index.scss';
 
 export const DepartmentSelect = ({ formData, onChange, errors }) => {
     return (
-        <div className="form-group">
-            <label htmlFor="department">Department</label>
+        <div className="dept-group">
+            <label htmlFor="department"><i className="fa-solid fa-briefcase"></i> Department</label>
             <select
                 id="department"
                 name="department"

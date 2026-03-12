@@ -1,101 +1,139 @@
 // |===========================================================================|
-// |-------------------------------| Adress Style |----------------------------|
+// |-------------------------------| Address Style |---------------------------|
 // |===========================================================================|
 
 @use "../../../styles/settings" as *;
 
 // =============================================================================
 
-
-.form-fieldset {
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    width: 600px;
-    gap: 10px 30px;
-    margin-top: 20px;
+.address-fields {
+    position: relative;
+    width: 90%;
+    margin-top: 28px;
+    padding: 22px 16px 18px;
+    border-radius: 14px;
     background-color: $color-secondary-darker;
-    border: none;
-    border-radius: 10px;
+    box-sizing: border-box;
 
-    legend {
-
-        display: flex;
-        flex-direction: row;
+    &__legend {
+        position: absolute;
+        top: -14px;
+        left: 16px;
+        display: inline-flex;
         align-items: center;
-        justify-content: center;
-        background-color: $color-secondary;
-        padding: 5px;
+        gap: 3px;
+        padding: 4px 10px;
         border-radius: 30px;
+        background-color: $color-secondary;
         font-family: $font-text;
-        font-size: 1.2em;
+        font-size: 1.05rem;
+        font-weight: 700;
         color: $text-color-black1;
 
         i {
-            font-size: 0.8em;
+            font-size: 0.85em;
         }
     }
 
-    .form-group {
-
+    &__street {
+        width: 100%;
+        margin-top: 18px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
+    }
 
+    &__grid {
+        width: 100%;
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 24px;
+    }
 
-        label {
-            position: relative;
-            font-family: $font-text;
-            color: $text-color-black2;
-            font-size: 1.2em;
-            margin-bottom: 10px;
+    .form-group {
+        width: calc(50% - 12px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
-            &::after {
-                content: "*";
-                position: absolute;
-                top: 0;
-                right: -12px;
-                color: $text-error;
-            }
+        &--half {
+            width: calc(50% - 12px);
         }
+    }
 
-        input,
-        select {
-            width: 270px;
-            height: 40px;
-            border: 1px solid $border-gray;
-            border-radius: 8px;
-            outline: none;
-            background-color: $color-secondary-lighter;
-            padding: 5px 5px;
-            padding-left: 15px;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-            color: $text-color-black2;
-            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    label {
+        position: relative;
+        margin-bottom: 8px;
+        font-family: $font-text;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-color-black2;
 
-            &::placeholder {
-                font-family: $font-text;
-                color: $text-color-placeholder;
-            }
-
-            &:focus {
-                outline: 1px solid $color-primary;
-            }
-        }
-
-        #street {
-            width: 570px;
-        }
-
-        .error-message {
-            font-family: $font-text;
-            font-size: 0.8em;
+        &::after {
+            content: "*";
+            margin-left: 4px;
             color: $text-error;
         }
+    }
+
+    input,
+    select {
+        width: 100%;
+        height: 48px;
+        padding: 0 14px;
+        border: 1px solid $border-gray;
+        border-radius: 10px;
+        outline: none;
+        background-color: $color-secondary-lighter;
+        font-family: $font-text;
+        font-size: 1rem;
+        color: $text-color-black2;
+        box-shadow: $box-shadow 0px 8px 16px -12px;
+        box-sizing: border-box;
+
+        transition:
+            border-color 0.25s ease,
+            box-shadow 0.25s ease,
+            background-color 0.25s ease,
+            transform 0.15s ease;
+
+        &:hover {
+            border-color: $color-primary;
+        }
+    }
+
+    input::placeholder {
+        font-family: $font-text;
+        color: $text-color-placeholder;
+    }
+
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+        padding-right: 42px;
+        background-image:
+            linear-gradient(45deg, transparent 50%, $text-color-black2 50%),
+            linear-gradient(135deg, $text-color-black2 50%, transparent 50%);
+        background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%;
+        background-size: 6px 6px;
+        background-repeat: no-repeat;
+    }
+
+    input:focus,
+    select:focus {
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px $border-shadow;
+        transform: translateY(-1px);
+    }
+
+    .error-message {
+        margin-top: 3px;
+        font-family: $font-text;
+        font-size: 0.82rem;
+        line-height: 1.3;
+        color: $text-error;
     }
 }
