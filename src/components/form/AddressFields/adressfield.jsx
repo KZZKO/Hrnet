@@ -50,7 +50,6 @@ export const AddressFields = ({ formData, onChange, errors }) => {
                             </option>
                         ))}
                     </select>
-                    {errors.state && <p className="error-message">{errors.state}</p>}
                 </div>
 
                 <div className="form-group form-group--half">

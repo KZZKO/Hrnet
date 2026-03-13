@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { EmployeeProvider } from './context/EmployeeContext';
 import { Index } from './pages/home/home.jsx'
 import { Employee } from './pages/employee/employee.jsx'
 import './styles/style.css'
@@ -17,7 +18,9 @@ const App = () => (
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <EmployeeProvider>
+        <App />
+      </EmployeeProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

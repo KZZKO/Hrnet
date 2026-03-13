@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { EmployeeContext } from '../../../context/EmployeeContext';
 import { PersonalFields } from '../PersonalFields/Persfield';
 import { AddressFields } from '../AddressFields/adressfield';
 import { DepartmentSelect } from '../DepartmentSelect/deptfield';
@@ -13,13 +14,14 @@ const initialFormData = {
     startDate: '',
     street: '',
     city: '',
-    state: '',
+    state: 'AL',
     zipCode: '',
-    department: '',
+    department: 'Sales',
 };
 
 export const EmployeeForm = () => {
     const navigate = useNavigate();
+    const { dispatch } = useContext(EmployeeContext);
 
     const [formData, setFormData] = useState(initialFormData);
     const [errors, setErrors] = useState({});
@@ -46,9 +48,9 @@ export const EmployeeForm = () => {
             startDate: formData.startDate.trim(),
             street: formData.street.trim(),
             city: formData.city.trim(),
-            state: formData.state.trim(),
+            state: formData.state,
             zipCode: formData.zipCode.trim(),
-            department: formData.department.trim(),
+            department: formData.department,
         };
 
         const newErrors = {};
@@ -77,16 +79,8 @@ export const EmployeeForm = () => {
             newErrors.city = 'City must contain at least 2 characters.';
         }
 
-        if (!trimmedData.state) {
-            newErrors.state = 'State is required.';
-        }
-
         if (!/^\d{4,10}$/.test(trimmedData.zipCode)) {
             newErrors.zipCode = 'Zip code must contain only numbers.';
-        }
-
-        if (!trimmedData.department) {
-            newErrors.department = 'Department is required.';
         }
 
         setErrors(newErrors);
@@ -106,10 +100,10 @@ export const EmployeeForm = () => {
             return;
         }
 
-        const employees = JSON.parse(localStorage.getItem('employees')) || [];
-        const updatedEmployees = [...employees, trimmedData];
-
-        localStorage.setItem('employees', JSON.stringify(updatedEmployees));
+        dispatch({
+            type: 'ADD_EMPLOYEE',
+            payload: trimmedData,
+        });
 
         alert('Employee created!');
 
@@ -127,13 +121,23 @@ export const EmployeeForm = () => {
                     variant="primary"
                     icon="fa-solid fa-users"
                     onClick={() => navigate('/Employee')}
-                ></Button>
+                />
             </div>
-
-            <PersonalFields formData={formData} onChange={handleChange} errors={errors} />
-            <AddressFields formData={formData} onChange={handleChange} errors={errors} />
-            <DepartmentSelect formData={formData} onChange={handleChange} errors={errors} />
-
+            <PersonalFields
+                formData={formData}
+                onChange={handleChange}
+                errors={errors}
+            />
+            <AddressFields
+                formData={formData}
+                onChange={handleChange}
+                errors={errors}
+            />
+            <DepartmentSelect
+                formData={formData}
+                onChange={handleChange}
+                errors={errors}
+            />
             <Button
                 type="submit"
                 variant="secondary"

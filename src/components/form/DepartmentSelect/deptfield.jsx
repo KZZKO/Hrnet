@@ -1,6 +1,6 @@
 import './index.scss';
 
-export const DepartmentSelect = ({ formData, onChange, errors }) => {
+export const DepartmentSelect = ({ formData, onChange }) => {
     return (
         <div className="dept-group">
             <label htmlFor="department"><i className="fa-solid fa-briefcase"></i> Department</label>
@@ -16,7 +16,6 @@ export const DepartmentSelect = ({ formData, onChange, errors }) => {
                 <option value="Human Resources">Human Resources</option>
                 <option value="Legal">Legal</option>
             </select>
-            {errors.department && <p className="error-message">{errors.department}</p>}
         </div>
     );
 };

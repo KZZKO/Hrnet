@@ -21,22 +21,65 @@
         box-shadow 0.25s ease,
         transform 0.15s ease;
 
-    i {
-        font-size: 0.95rem;
-    }
-
     &--primary {
         position: absolute;
-        top: 10px;
+        top: -5px;
         right: -150px;
-        color: $text-color-black2;
+        width: 50px;
+        height: 50px;
+        color: $color-secondary-lighter;
+        background-color: $color-primary;
         border: 1px solid $border-gray;
-        box-shadow: rgba(33, 35, 38, 0.08) 0px 8px 16px -12px;
-        transition: 0.2s ease;
+        border-radius: 50%;
+        box-shadow: $box-shadow 0px 8px 16px -12px;
+        transition: 0.4s ease;
+
+        i {
+            font-size: 1.3rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 50px;
+            right: 19px;
+            width: 10px;
+            height: 10px;
+            background-color: $color-tooltip;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.3s ease, bottom 0.3s ease;
+            z-index: 1;
+        }
+
+        &::after {
+            content: "Current Employees";
+            position: absolute;
+            bottom: 55px;
+            right: -57px;
+            padding: 3px 5px;
+            font-size: 0.9rem;
+            width: 150px;
+            border-radius: 5px;
+            color: $color-primary;
+            background-color: $color-tooltip;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            z-index: 2;
+        }
 
         &:hover {
-            border-color: $color-primary;
-            color: $color-primary;
+
+            &::before {
+                bottom: 50px;
+                opacity: 1;
+            }
+
+            &::after {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     }
 
@@ -49,6 +92,10 @@
         margin-top: 30px;
         border-radius: 40px;
         gap: 20px;
+
+        i {
+            font-size: 0.95rem;
+        }
 
         &:hover {
             transform: translateY(-1px);
