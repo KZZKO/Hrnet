@@ -84,6 +84,7 @@ export const Table = () => {
                 borderTop: '1px solid #eeeeee',
                 borderBottomLeftRadius: '18px',
                 borderBottomRightRadius: '18px',
+                justifyContent: 'space-between'
             },
             pageButtonsStyle: {
                 borderRadius: '10px',
@@ -133,6 +134,7 @@ export const Table = () => {
                     pagination
                     paginationPerPage={rowsPerPage}
                     paginationRowsPerPageOptions={[10, 25, 50]}
+                    paginationComponentOptions={{ noRowsPerPage: true }}
                     highlightOnHover
                     striped
                     responsive

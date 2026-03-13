@@ -1,6 +1,4 @@
-- Finir de stylisé les boutons
-- Import plugin tableau
-- Ajuster le tableau
+- Corriger input type date, couleur text
 - Créer plugin modal
 - Doc du plugin
 - Import plugin modal
