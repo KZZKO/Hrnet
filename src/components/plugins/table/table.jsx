@@ -4,15 +4,23 @@ import { EmployeeContext } from '../../../context/EmployeeContext';
 import './index.scss';
 
 export const Table = () => {
+
+    // Récupère la liste des employés depuis le contexte global
     const { employees } = useContext(EmployeeContext);
+
+    // State qui stocke le texte saisi dans le champ de recherche
     const [searchTerm, setSearchTerm] = useState('');
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
+    // Filtre les employés selon le texte saisi dans la recherche
     const filteredEmployees = useMemo(() => {
+
         const normalizedSearch = searchTerm.toLowerCase().trim();
 
+        // Retourne tous les employés si aucun texte n'est saisi
         if (!normalizedSearch) return employees;
 
+        // Retourne uniquement les employés qui contiennent le texte recherché
         return employees.filter((employee) =>
             Object.values(employee).some((value) =>
                 String(value).toLowerCase().includes(normalizedSearch)
@@ -20,6 +28,7 @@ export const Table = () => {
         );
     }, [employees, searchTerm]);
 
+    // Définit les colonnes affichées dans le tableau
     const columns = [
         { name: 'First Name', selector: row => row.firstName, sortable: true, grow: 1.2 },
         { name: 'Last Name', selector: row => row.lastName, sortable: true, grow: 1.2 },
@@ -98,7 +107,9 @@ export const Table = () => {
 
     return (
         <div className="employee-table">
+
             <div className="employee-table__toolbar">
+
                 <div className="employee-table__entries">
                     <span>Show</span>
 

@@ -26,6 +26,7 @@ export const EmployeeForm = () => {
     const [formData, setFormData] = useState(initialFormData);
     const [errors, setErrors] = useState({});
 
+    // Met à jour la valeur du champ modifié et supprime son erreur si besoin
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -40,7 +41,9 @@ export const EmployeeForm = () => {
         }));
     };
 
+    // Vérifie les données du formulaire et prépare les valeurs nettoyées
     const validateForm = () => {
+
         const trimmedData = {
             firstName: formData.firstName.trim(),
             lastName: formData.lastName.trim(),
@@ -83,8 +86,10 @@ export const EmployeeForm = () => {
             newErrors.zipCode = 'Zip code must contain only numbers.';
         }
 
+        // Met à jour le state des erreurs
         setErrors(newErrors);
 
+        // Retourne le résultat de la validation et les données nettoyées
         return {
             isValid: Object.keys(newErrors).length === 0,
             trimmedData,
@@ -94,12 +99,15 @@ export const EmployeeForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        // Lance la validation du formulaire
         const { isValid, trimmedData } = validateForm();
 
+        // Arrête l'envoi si le formulaire contient des erreurs
         if (!isValid) {
             return;
         }
 
+        // Envoie l'action au reducer pour ajouter le nouvel employé
         dispatch({
             type: 'ADD_EMPLOYEE',
             payload: trimmedData,
@@ -107,9 +115,13 @@ export const EmployeeForm = () => {
 
         alert('Employee created!');
 
+        // Réinitialise les champs du formulaire
         setFormData(initialFormData);
+
+        // Réinitialise les erreurs du formulaire
         setErrors({});
     };
+
 
     return (
         <form className="employee-form" onSubmit={handleSubmit} noValidate>

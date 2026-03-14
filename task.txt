@@ -1,4 +1,3 @@
-- Corriger input type date, couleur text
 - Créer plugin modal
 - Doc du plugin
 - Import plugin modal
