@@ -1,6 +1,2 @@
-- Créer plugin modal
-- Doc du plugin
-- Import plugin modal
-- Ajuster la modal
 - SEO
 - Comparatif performance Lighthouse

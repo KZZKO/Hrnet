@@ -11,6 +11,7 @@
     "sass": "sass --watch ./src/styles/_settings.scss:./src/styles/style.css --style compressed"
   },
   "dependencies": {
+    "kz-react-modal": "^1.0.0",
     "react": "^19.2.0",
     "react-data-table-component": "^7.7.0",
     "react-dom": "^19.2.0",

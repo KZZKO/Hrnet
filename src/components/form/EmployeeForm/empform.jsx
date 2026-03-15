@@ -5,6 +5,7 @@ import { PersonalFields } from '../PersonalFields/Persfield';
 import { AddressFields } from '../AddressFields/adressfield';
 import { DepartmentSelect } from '../DepartmentSelect/deptfield';
 import { Button } from '../../ui/Button/button';
+import KZModal from '../../plugins/modal/modal';
 import './index.scss';
 
 const initialFormData = {
@@ -25,6 +26,7 @@ export const EmployeeForm = () => {
 
     const [formData, setFormData] = useState(initialFormData);
     const [errors, setErrors] = useState({});
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Met à jour la valeur du champ modifié et supprime son erreur si besoin
     const handleChange = (event) => {
@@ -113,7 +115,8 @@ export const EmployeeForm = () => {
             payload: trimmedData,
         });
 
-        alert('Employee created!');
+        // Ouvre la modal de confirmation
+        setIsModalOpen(true);
 
         // Réinitialise les champs du formulaire
         setFormData(initialFormData);
@@ -122,41 +125,49 @@ export const EmployeeForm = () => {
         setErrors({});
     };
 
-
     return (
-        <form className="employee-form" onSubmit={handleSubmit} noValidate>
-            <div className="employee-form-header">
-                <h2 className="employee-form-title">Create Employee</h2>
+        <>
+            <form className="employee-form" onSubmit={handleSubmit} noValidate>
+                <div className="employee-form-header">
+                    <h2 className="employee-form-title">Create Employee</h2>
 
-                <Button
-                    type="button"
-                    variant="primary"
-                    icon="fa-solid fa-users"
-                    onClick={() => navigate('/Employee')}
+                    <Button
+                        type="button"
+                        variant="primary"
+                        icon="fa-solid fa-users"
+                        onClick={() => navigate('/Employee')}
+                    />
+                </div>
+                <PersonalFields
+                    formData={formData}
+                    onChange={handleChange}
+                    errors={errors}
                 />
-            </div>
-            <PersonalFields
-                formData={formData}
-                onChange={handleChange}
-                errors={errors}
-            />
-            <AddressFields
-                formData={formData}
-                onChange={handleChange}
-                errors={errors}
-            />
-            <DepartmentSelect
-                formData={formData}
-                onChange={handleChange}
-                errors={errors}
-            />
-            <Button
-                type="submit"
-                variant="secondary"
-                icon="fa-solid fa-arrow-right"
+                <AddressFields
+                    formData={formData}
+                    onChange={handleChange}
+                    errors={errors}
+                />
+                <DepartmentSelect
+                    formData={formData}
+                    onChange={handleChange}
+                    errors={errors}
+                />
+                <Button
+                    type="submit"
+                    variant="secondary"
+                    icon="fa-solid fa-arrow-right"
+                >
+                    Save Employee
+                </Button>
+            </form>
+            <KZModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                title="Employee created"
             >
-                Save Employee
-            </Button>
-        </form>
+                <p>The employee has been successfully created.</p>
+            </KZModal>
+        </>
     );
 };

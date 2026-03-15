@@ -1,0 +1,28 @@
+// |===========================================================================|
+// |------------------------------| Modal Style |------------------------------|
+// |===========================================================================|
+
+@use "../../../styles/settings" as *;
+
+// =============================================================================
+
+.hrnet-modal {
+
+    padding: 50px 30px;
+    background-color: $color-secondary;
+
+    // .kz-modal-close {
+
+    // }
+
+    h2 {
+        font-family: $font-title;
+        margin-bottom: 20px;
+        color: $text-color-black1;
+    }
+
+    .kz-modal-content {
+        font-family: $font-text;
+        color: $text-color-black2;
+    }
+}
