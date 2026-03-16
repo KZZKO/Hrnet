@@ -135,6 +135,7 @@ export const EmployeeForm = () => {
                         type="button"
                         variant="primary"
                         icon="fa-solid fa-users"
+                        ariaLabel="View current employees"
                         onClick={() => navigate('/Employee')}
                     />
                 </div>
